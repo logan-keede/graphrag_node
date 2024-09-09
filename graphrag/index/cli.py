@@ -110,6 +110,7 @@ def index_cli(
     skip_validations: bool,
 ):
     """Run the pipeline with the given config."""
+    reporter = "none"
     progress_reporter = load_progress_reporter(reporter or "rich")
     info, error, success = _logger(progress_reporter)
     run_id = resume or time.strftime("%Y%m%d-%H%M%S")
@@ -125,6 +126,8 @@ def index_cli(
         config.cache.type = CacheType.none
 
     enabled_logging, log_path = enable_logging_with_config(config, verbose)
+    enabled_logging = False
+    verbose = False
     if enabled_logging:
         info(f"Logging enabled at {log_path}", True)
     else:
