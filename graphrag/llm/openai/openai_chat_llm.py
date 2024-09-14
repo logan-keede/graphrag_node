@@ -22,7 +22,7 @@ from .utils import (
     get_completion_llm_args,
     try_parse_json_object,
 )
-
+import requests 
 log = logging.getLogger(__name__)
 
 _MAX_GENERATION_RETRIES = 3
@@ -53,8 +53,12 @@ class OpenAIChatLLM(BaseLLM[CompletionInput, CompletionOutput]):
         completion = await self.client.chat.completions.create(
             messages=messages, **args
         )
-        return completion.choices[0].message.content
 
+        # completion = requests.post('http://localhost:11434/api/chat', json ={'model':'sciphi/triplex', "messages":messages, "stream":False})
+        # print(completion.json()["message"]['content'])
+        print(completion.choices[0].message.content)
+        return completion.choices[0].message.content
+        # return completion.json()["message"]['content']
     async def _invoke_json(
         self,
         input: CompletionInput,

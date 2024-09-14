@@ -2,7 +2,7 @@
 encoding_model: cl100k_base
 skip_workflows: []
 llm:
-  api_key: ${GROQ_API_KEY}
+  api_key: ${GRAPHRAG_API_KEY}
   type: openai_chat # or azure_openai_chat
   model:  llama3-8b-8192
   model_supports_json: true # recommended if this is available for your model.
