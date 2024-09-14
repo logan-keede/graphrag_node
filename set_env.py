@@ -1,6 +1,6 @@
 
 import os
-GROQ_API_KEY = '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' # @param {type:"string"}
+GROQ_API_KEY = '' # @param {type:"string"}
 HUGGING_FACE_TOKEN = '<HUGGING_FACE_TOKEN>' # @param {type:"string"}
 # GROQ_API_KEY 
 print(GROQ_API_KEY)
